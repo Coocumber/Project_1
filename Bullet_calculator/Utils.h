@@ -2,6 +2,7 @@
 
 #include <initializer_list>
 #include <cmath>
+#include <stdexcept>
 
 /**
  * @brief Пространство имён математических операций и объектов

@@ -2,6 +2,11 @@
 
 maths::vec3::vec3(std::initializer_list<double> elements)
 {
+    if (elements.size() < 3 || elements.size() > 3)
+    {
+        throw std::out_of_range("vec3 constructor requires 3 params");
+    }
+    
     x = *elements.begin();
     y = *(elements.begin() + 1);
     z = *elements.end();
