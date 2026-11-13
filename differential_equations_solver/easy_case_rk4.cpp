@@ -1,8 +1,8 @@
 /*
 dx/dt = vx
 dy/dt = vy
-dvx/dt = 0
-dvy/dt = -g
+dvx/dt = -k/m*v*vx
+dvy/dt = -g-k/m*v*vy
 Система уравнений вида Y' = F(t, Y)
 К каждому применяем РК4
 */
@@ -16,21 +16,21 @@ struct State
 };
 
 // Правые части уравнений dY/dt = f(t, Y)
-State derivatives(double t, const State& s, double g) 
+State derivatives(double t, const State& s, double g, double k, double m) 
 {
     return 
     {
         s.vx,   // dx/dt = vx
         s.vy,   // dy/dt = vy
-        0.0,    // dvx/dt = 0
-        -g      // dvy/dt = -g
+        -k/m * sqrt(s.vx*s.vx + s.vy*s.vy) * s.vx,    // dvx/dt = -k/m*v*vx
+        -g - k/m * sqrt(s.vx*s.vx + s.vy*s.vy) * s.vy    // dvy/dt = -g
     };
 }
 
 // Шаг метода Рунге-Кутты 4-го порядка
-State rk4_step(double t, const State& s, double dt, double g) 
+State rk4_step(double t, const State& s, double dt, double g, double k, double m) 
 {
-    State k1 = derivatives(t, s, g);
+    State k1 = derivatives(t, s, g, k, m);
     
     State s2 = 
     {
@@ -40,7 +40,7 @@ State rk4_step(double t, const State& s, double dt, double g)
         s.vy + 0.5 * dt * k1.vy
     };
 
-    State k2 = derivatives(t + 0.5 * dt, s2, g);
+    State k2 = derivatives(t + 0.5 * dt, s2, g, k, m);
     
     State s3 = 
     {
@@ -50,7 +50,7 @@ State rk4_step(double t, const State& s, double dt, double g)
         s.vy + 0.5 * dt * k2.vy
     };
 
-    State k3 = derivatives(t + 0.5 * dt, s3, g);
+    State k3 = derivatives(t + 0.5 * dt, s3, g, k, m);
     
     State s4 = 
     {
@@ -60,7 +60,7 @@ State rk4_step(double t, const State& s, double dt, double g)
         s.vy + dt * k3.vy
     };
 
-    State k4 = derivatives(t + dt, s4, g);
+    State k4 = derivatives(t + dt, s4, g, k, m);
     
     return 
     {
@@ -73,8 +73,10 @@ State rk4_step(double t, const State& s, double dt, double g)
 
 int main() {
     double v0 = 50.0;              // Начальная скорость (м/с)
-    double angle_deg = 45.0;       // Угол броска к горизонту (градусы)
+    double angle_deg = 40.0;       // Угол броска к горизонту (градусы)
     double g = 9.81;               // Ускорение свободного падения (м/с²)
+    double m = 0.145;
+    double k = 0.0012;
     
     double dt = 0.05;              // Шаг интегрирования (с)
     double t = 0.0;
@@ -95,7 +97,7 @@ int main() {
     {
         std::cout << "(" << state.x << ", " << state.y << ")\n";
     
-        state = rk4_step(t, state, dt, g);
+        state = rk4_step(t, state, dt, g, k, m);
         t += dt;
     }
     
