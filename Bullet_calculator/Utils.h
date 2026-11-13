@@ -35,9 +35,10 @@ public:
     /**
      * @brief Создаёт объект типа vec3 со значениями other вектора
      * 
+     * @param другой вектор
      */
     vec3(const vec3& other);
-    
+
     vec3& operator=(const vec3& other);
 
     /**
@@ -66,6 +67,19 @@ public:
      * @return vec3 скалярное произведение двух векторов - новый вектор
      */
     friend double operator*(const vec3& lhs, const vec3& rhs);
+
+    /**
+     * @brief Умножение вектора на число number
+     * 
+     * @param vec вектор
+     * @param number число
+     * @return vec3
+     */
+    friend vec3 operator*(vec3 vec, double number);
+    
+    vec3& operator+=(const vec3& rhs);
+    vec3& operator-=(const vec3& rhs);
+    vec3& operator*=(double number);
 };
 
 /**
