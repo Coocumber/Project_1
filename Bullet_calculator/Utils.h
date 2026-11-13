@@ -1,6 +1,7 @@
 #pragma once
 
 #include <initializer_list>
+#include <cmath>
 
 /**
  * @brief Пространство имён математических операций и объектов
@@ -49,7 +50,7 @@ public:
      * @param rhs
      * @return vec3 скалярное произведение двух векторов - новый вектор
      */
-    friend vec3 operator*(const vec3& lhs, const vec3& rhs);
+    friend double operator*(const vec3& lhs, const vec3& rhs);
 };
 
 /**
