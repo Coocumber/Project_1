@@ -48,7 +48,7 @@ public:
      * @param rhs второе слагаемое
      * @return vec3 сумма двух векторов - новый вектор
      */
-    friend vec3 operator+(const vec3& lhs, const vec3& rhs);
+    friend vec3 operator+(vec3 lhs, const vec3& rhs);
 
     /**
      * @brief Разность двух векторов
@@ -57,7 +57,7 @@ public:
      * @param rhs
      * @return vec3 разность двух векторов - новый вектор
      */
-    friend vec3 operator-(const vec3& lhs, const vec3& rhs);
+    friend vec3 operator-(vec3 lhs, const vec3& rhs);
 
     /**
      * @brief Скалярное произведение двух векторов
@@ -81,6 +81,11 @@ public:
     vec3& operator-=(const vec3& rhs);
     vec3& operator*=(double number);
 };
+
+vec3 operator+(vec3 lhs, const vec3& rhs);
+vec3 operator-(vec3 lhs, const vec3& rhs);
+double operator*(const vec3& lhs, const vec3& rhs);
+vec3 operator*(vec3 vec, double number);
 
 /**
  * @brief Вычисление модуля вектора
