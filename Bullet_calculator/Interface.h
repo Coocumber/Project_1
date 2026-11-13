@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Bullet.h"
 #include "Environment.h"
 #include "Calculator.h"

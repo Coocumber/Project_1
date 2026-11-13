@@ -1,25 +1,33 @@
+#pragma once
+
 #include "Bullet.h"
 #include "Environment.h"
 
+/**
+ * @brief Класс вычислений. Хранит ссылки на пулю, среду и условия задачи,
+ * 
+ * 
+ */
 class Calculator
 {
 private:
-    // Параметры пули
-    double weight;    // масса пули в мг
-    std::string form; // возможна замена на name
-    double ballistic_coefficient;
-    double start_speed;
-    double x, y, z; // Z - координата вдоль оси стрельбы
-
-    // Параметры среды
-    double wind_speed;
-    double wind_direction;  // задаётся градусом относительно оси Z по часовой стрелке
-    double g;               // ускорение свободного падения
-    double target_distance; // дистанция до цели в метрах
-
-    // Параметры для подсчетов
-    // --------------------------
+    Bullet& bullet;
+    Environment& environment;
 
 public:
-    Calculator(Bullet &bullet, Environment &env); // По идее просто переписывем параметры в private
+    /**
+     * @brief Создаёт объект типа Calculator. 
+     * 
+     * @param bullet пуля
+     * @param env среда
+     */
+    Calculator(Bullet &bullet, Environment &env);
+    
+    /**
+     * @brief Рассчитывает движение пули за промежуток времени dt.
+     * Меняет состояние пули!
+     * 
+     * @param dt шаг времени в мс
+     */
+    void process_bullet_motion(double dt);
 };
