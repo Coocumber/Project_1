@@ -12,6 +12,21 @@ maths::vec3::vec3(std::initializer_list<double> elements)
     z = *elements.end();
 }
 
+maths::vec3::vec3() : x(0), y(0), z(0)
+{
+}
+
+maths::vec3::vec3(const vec3 &other)
+{
+    x = other.x, y = other.y, z = other.z;
+}
+
+maths::vec3 &maths::vec3::operator=(const vec3 &other)
+{
+    *this = vec3(other);
+    return *this;
+}
+
 maths::vec3 maths::operator+(const vec3 &lhs, const vec3 &rhs)
 {
     return vec3{lhs.x + rhs.x,

@@ -27,6 +27,20 @@ public:
     vec3(std::initializer_list<double> elements);
 
     /**
+     * @brief Создаёт объект типа vec3 со значениями 0, 0, 0
+     * 
+     */
+    vec3();
+
+    /**
+     * @brief Создаёт объект типа vec3 со значениями other вектора
+     * 
+     */
+    vec3(const vec3& other);
+    
+    vec3& operator=(const vec3& other);
+
+    /**
      * @brief Сложение двух векторов
      * 
      * @param lhs первое слагаемое
