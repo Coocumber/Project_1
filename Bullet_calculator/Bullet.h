@@ -14,6 +14,7 @@ public:
     maths::vec3 velocity; // координаты пули в полёте x, y, z
     // Полёт вдоль oX, oY || g  и направлен вверх, oZ вправо по направлению полёта пули
 
+    Bullet() : mass(0), form_name("bullet"), ballistic_coefficient(0.001), coordinates({0, 0, 0}) {};
     Bullet(std::string form_name, double mass_);
     Bullet(std::string form_name, double mass_, double ballistic_coefficient_);
 
