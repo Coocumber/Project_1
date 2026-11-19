@@ -37,9 +37,11 @@ public:
      * 
      * @param другой вектор
      */
-    vec3(const vec3& other);
+    vec3(const vec3& other) = default;
+    vec3(vec3&& other) = default;
 
-    vec3& operator=(const vec3& other);
+    vec3& operator=(const vec3& other) = default;
+    vec3& operator=(vec3&& other) = default;
 
     /**
      * @brief Сложение двух векторов
@@ -75,7 +77,17 @@ public:
      * @param number число
      * @return vec3
      */
-    friend vec3 operator*(vec3 vec, double number);
+    friend vec3 operator*(vec3 lhs, double scalar) 
+    {
+        lhs *= scalar;
+        return lhs;
+    }
+
+    friend vec3 operator*(double scalar, vec3 rhs) 
+    {
+        rhs *= scalar;
+        return rhs;
+    }
     
     vec3& operator+=(const vec3& rhs);
     vec3& operator-=(const vec3& rhs);

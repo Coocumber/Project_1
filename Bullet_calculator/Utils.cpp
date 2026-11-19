@@ -16,17 +16,6 @@ maths::vec3::vec3() : x(0), y(0), z(0)
 {
 }
 
-maths::vec3::vec3(const vec3 &other)
-{
-    x = other.x, y = other.y, z = other.z;
-}
-
-maths::vec3 &maths::vec3::operator=(const vec3 &other)
-{
-    *this = vec3(other);
-    return *this;
-}
-
 maths::vec3 &maths::vec3::operator+=(const vec3 &rhs)
 {
     x += rhs.x;
@@ -66,12 +55,6 @@ maths::vec3 maths::operator-(vec3 lhs, const vec3 &rhs)
 double maths::operator*(const vec3 &lhs, const vec3 &rhs)
 {
     return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
-}
-
-maths::vec3 maths::operator*(vec3 vec, double number)
-{
-    vec *= number;
-    return vec;
 }
 
 double maths::length(const vec3 &vec)
