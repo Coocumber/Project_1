@@ -10,6 +10,8 @@
  */
 namespace maths
 {
+
+    constexpr double PI = 3.141592;
 /**
  * @brief математический вектор из 3-х координат
  * 
@@ -106,4 +108,14 @@ vec3 operator*(vec3 vec, double number);
  * @return длина вектора 
  */
 double length(const vec3& vec);
+/**
+ * @brief Переводит градусы в радианы
+ * 
+ * @param degrees 
+ * @return значение угла в радианах
+ */
+constexpr double radians(double degrees)
+{
+    return degrees * (PI / 180);
+}
 }
