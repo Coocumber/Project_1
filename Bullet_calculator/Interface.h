@@ -7,7 +7,7 @@
 class Interface
 {
 public:
-    void input_bullet_data(Bullet &bullet);
+    Bullet input_bullet_data();
     void input_env_data(Environment &env);
 
     void calc_out(Calculator &calc);
