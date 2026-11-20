@@ -16,7 +16,7 @@ void Calculator::process_bullet_motion(double dt)
 
     while (state.coordinates.y >= 0)
     {
-        state = rk4_step(0, state, dt, environment.g, 0, bullet.mass);
+        state = rk4_step(0, state, dt / 1000.0, environment.g, 0, bullet.mass);
 
         std::cout << "(" << state.coordinates.x << ", " << 
                             state.coordinates.y << ")" << std::endl;

@@ -114,5 +114,8 @@ double length(const vec3& vec);
  * @param degrees 
  * @return значение угла в радианах
  */
-constexpr double radians(double degrees);
+constexpr double radians(double degrees)
+{
+    return degrees * (PI / 180);
+}
 }
