@@ -1,8 +1,10 @@
+#pragma once
+
 struct Target
 {
-    double x;
-    double y;
+    double x; // Координата смещения по горизонтали
+    double y; // Координата смещения по вертикали
 
-    Target() : x(0), y(0) {};
-    Target(double x_, double y_) : x(x_), y(y_) {}
+    Target();
+    Target(double x_, double y_);
 };
