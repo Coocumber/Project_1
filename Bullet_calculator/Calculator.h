@@ -5,6 +5,7 @@
 #include "Task_param.h"
 #include "Target.h"
 #include "Runge_kutta.h"
+#include <cmath>
 
 /**
  * @brief Класс вычислений. Хранит ссылки на пулю, среду и условия задачи,

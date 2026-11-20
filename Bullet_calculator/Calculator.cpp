@@ -9,5 +9,5 @@ Calculator::Calculator(Bullet &bullet_, Environment &environment_,
 
 void Calculator::process_bullet_motion(double dt)
 {
-
+    State state{bullet.coordinates, bullet.velocity};
 }
