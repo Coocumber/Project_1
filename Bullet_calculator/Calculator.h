@@ -27,7 +27,7 @@ public:
      * @param bullet_ пуля
      * @param environment_ среда
      * @param start_params_ начальные условия
-     * @param target_ минещь
+     * @param target_ мишень
      */
     Calculator(Bullet &bullet_, Environment &environment_, Task_param &start_params_,
     Target& target_);
