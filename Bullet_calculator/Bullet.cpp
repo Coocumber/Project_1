@@ -1,13 +1,10 @@
-<<<<<<< HEAD
-#include"Bullet.h"
-=======
 #include "Bullet.h"
 
 Bullet::Bullet()
     : form_name("bullet"), mass(0), coordinates({0, 0, 0})
 {
 }
->>>>>>> main
+
 
 Bullet::Bullet(std::string form_name, double mass_)
     : form_name(form_name), mass(mass_), coordinates({0, 0, 0})
@@ -25,9 +22,4 @@ std::ostream &operator<<(std::ostream &stream, const Bullet &rhs)
     stream << "Mass " << rhs.mass << "mg" << " | ";
     stream << "Ballistic_coefficient: " << rhs.ballistic_coefficient;
     return stream;
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> main
