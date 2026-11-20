@@ -61,3 +61,8 @@ double maths::length(const vec3 &vec)
 {
     return std::sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z);
 }
+
+constexpr double maths::radians(double degrees)
+{
+    return degrees * (PI / 180);
+}
