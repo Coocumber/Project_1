@@ -4,6 +4,7 @@
 #include "Environment.h"
 #include "Task_param.h"
 #include "Target.h"
+#include "Runge_kutta.h"
 
 /**
  * @brief Класс вычислений. Хранит ссылки на пулю, среду и условия задачи,
@@ -13,7 +14,7 @@
 class Calculator
 {
 private:
-    Bullet bullet;
+    Bullet& bullet;
     Environment environment;
     Task_param start_params;
     Target target;

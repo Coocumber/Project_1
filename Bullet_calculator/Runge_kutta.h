@@ -50,7 +50,7 @@ State derivatives(double t, const State& s, double g, double k, double m)
  * 
  * @param t начальное время
  * @param s состояние системы
- * @param dt малый шаг времени
+ * @param dt малый шаг времени в секундах
  * @param g ускорение свободного падения
  * @param k коэффициент сопротивления
  * @param m масса
