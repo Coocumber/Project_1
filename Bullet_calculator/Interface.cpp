@@ -32,17 +32,16 @@ Bullet Interface::input_bullet_data()
     
     while (true)
     {
-        std::cout<< "Ballistic coefficient = ";
-        if (std::cin >> bullet.ballistic_coefficient, bullet.ballistic_coefficient < 1) {
+        std::cout << "Ballistic coefficient = ";
+        if ((std::cin >> bullet.ballistic_coefficient) && bullet.ballistic_coefficient < 1) {
             break; 
         } 
-        else{
-            std::cout << "Error: Please enter a valid number!" << std::endl;
+        else {
+            std::cout << "Error: Please enter a valid number (less than 1)!" << std::endl;
             std::cin.clear(); 
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
-
     // while (true)
     // {
     //     std::cout<< "Name bullet = ";
