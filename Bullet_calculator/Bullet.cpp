@@ -18,7 +18,7 @@ Bullet::Bullet(std::string form_name, double mass_, double ballistic_coefficient
 std::ostream &operator<<(std::ostream &stream, const Bullet &rhs)
 {
     stream << "Bullet: " << rhs.form_name << " | ";
-    stream << "Mass " << rhs.mass * 1000 << "mg" << " | ";
+    stream << "Mass " << rhs.mass << "mg" << " | ";
     stream << "Ballistic_coefficient: " << rhs.ballistic_coefficient;
     return stream;
 }
