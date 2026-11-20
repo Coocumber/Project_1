@@ -32,7 +32,7 @@ Bullet Interface::input_bullet_data()
     
     while (true)
     {
-        std::cout<< "allistic_coefficien = ";
+        std::cout<< "Ballistic coefficient = ";
         if (std::cin >> bullet.ballistic_coefficient, bullet.ballistic_coefficient < 1) {
             break; 
         } 
