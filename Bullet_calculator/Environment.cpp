@@ -1,5 +1,7 @@
 #include "Environment.h"
 
+Environment::Environment()    : name("env"), wind_speed(0), wind_direction(0), g(9.81) {}
+
 Environment::Environment(std::string name_, double wind_speed_, double wind_direction_, double g_)
     : name(name_), wind_speed(wind_speed_), wind_direction(wind_direction_), g(g_) {}
 

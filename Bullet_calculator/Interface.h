@@ -8,7 +8,8 @@ class Interface
 {
 public:
     Bullet input_bullet_data();
-    void input_env_data(Environment &env);
-
-    void calc_out(Calculator &calc);
+    // void input_env_data(Environment &env);
+    Environment input_env_data();
+    Task_param input_task_param_data();
+    void SelectCalculate();
 };
