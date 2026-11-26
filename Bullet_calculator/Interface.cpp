@@ -150,13 +150,16 @@ void Interface::SelectCalculate()
         switch (choice) 
         {
             case 1:
+            {
                 std::cout << "You chose Method1\n";
                 bull = input_bullet_data();
                 env = input_env_data();
                 task_param = input_task_param_data();
+                Calculator calc(bull,env,task_param);
                 isRunning = false;
                 break;
-            default:
+            }
+                default:
                 std::cout << "Invalid environment! Please choose 1.\n";
 
                 break;
