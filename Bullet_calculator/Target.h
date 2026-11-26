@@ -1,4 +1,5 @@
 #pragma once
+#include<iostream>
 
 struct Target
 {
@@ -7,4 +8,5 @@ struct Target
 
     Target();
     Target(double x_, double y_);
+    friend std::ostream &operator<<(std::ostream &stream, const Target &rhs);
 };

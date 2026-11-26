@@ -134,8 +134,9 @@ void Interface::SelectCalculate()
     Environment env;
     Bullet bull;
     int choice; 
+    Target targ;
     std::cout << "\nSelect a calculation method:\n"
-            << "1: Method1:\n calculate the final coordinates of the bullet\n"<<'\n';
+            << "1: Method1:\n calculate the final coordinates of the bullet\n";
     bool isRunning = true;  
     while (isRunning) 
     {
@@ -157,6 +158,9 @@ void Interface::SelectCalculate()
                 task_param = input_task_param_data();
                 Calculator calc(bull,env,task_param);
                 isRunning = false;
+                targ = calc.process_bullet_motion(50);
+                std::cout<<"FINAL COORDINATS"<< '\n';
+                std::cout<<targ<<std::endl;
                 break;
             }
                 default:
