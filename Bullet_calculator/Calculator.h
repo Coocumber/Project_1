@@ -6,6 +6,7 @@
 #include "Target.h"
 #include "Runge_kutta.h"
 #include <cmath>
+#include <vector>
 
 /**
  * @brief Класс вычислений. Хранит ссылки на пулю, среду и условия задачи,
@@ -19,6 +20,7 @@ private:
     Environment environment;
     Task_param start_params;
     Target target;
+    std::vector<maths::vec3> trajectory;
 
 public:
     /**
@@ -27,16 +29,15 @@ public:
      * @param bullet_ пуля
      * @param environment_ среда
      * @param start_params_ начальные условия
-     * @param target_ мишень
      */
-    Calculator(Bullet &bullet_, Environment &environment_, Task_param &start_params_,
-    Target& target_);
+    Calculator(Bullet &bullet_, Environment &environment_, Task_param &start_params_);
 
     /**
      * @brief Рассчитывает движение пули за промежуток времени dt.
      * Меняет состояние пули! ВЫВОДИТ В КОНСОЛЬ КООРДИНАТЫ!!!
      *
      * @param dt шаг времени в мс
+     * @return объект типа Target с координатами попадания пули
      */
-    void process_bullet_motion(double dt);
+    Target process_bullet_motion(double dt);
 };
