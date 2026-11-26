@@ -160,7 +160,7 @@ void Interface::SelectCalculate()
                 break;
             }
                 default:
-                std::cout << "Invalid environment! Please choose 1.\n";
+                std::cout << "Invalid choose of method! Please choose 1.\n";
 
                 break;
         }
