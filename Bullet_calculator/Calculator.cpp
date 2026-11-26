@@ -18,7 +18,7 @@ Target Calculator::process_bullet_motion(double dt)
     {
         state = rk4_step(0, state, dt / 1000.0, environment.g, 0, bullet.mass);
 
-        
+        bullet.coordinates = state.coordinates;
         std::cout << "(" << state.coordinates.x << ", " << 
                             state.coordinates.y << ")" << std::endl;
         
