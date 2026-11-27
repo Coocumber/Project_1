@@ -35,7 +35,7 @@ struct State
  * @param m масса пули
  * @return State производные состояния системы
  */
-State derivatives(double t, const State& s, double g, double k, double m) ;
+State derivatives(double t, const State& s, double g, double k, double m,  const maths::vec3& wind);
 
 /**
  * @brief Один шаг метода РК4
@@ -48,4 +48,4 @@ State derivatives(double t, const State& s, double g, double k, double m) ;
  * @param m масса
  * @return State состояние системы после шага
  */
-State rk4_step(double t, const State& s, double dt, double g, double k, double m) ;
+State rk4_step(double t, const State& s, double dt, double g, double k, double m,  const maths::vec3& wind);

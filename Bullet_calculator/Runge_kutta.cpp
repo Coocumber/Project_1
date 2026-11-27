@@ -9,8 +9,11 @@
  * @param m масса пули
  * @return State производные состояния системы
  */
-State derivatives(double t, const State& s, double g, double k, double m) 
+State derivatives(double t, const State& s, double g, double k, double m, const maths::vec3& wind) 
 {
+    maths::vec3 v_rel = s.velocity - wind;
+    double v_rel_len = maths::length(v_rel);
+
     return 
     {
         {s.velocity.x, s.velocity.y, s.velocity.z},  // dx/dt = V
@@ -30,7 +33,7 @@ State derivatives(double t, const State& s, double g, double k, double m)
  * @param m масса
  * @return State состояние системы после шага
  */
-State rk4_step(double t, const State& s, double dt, double g, double k, double m) 
+State rk4_step(double t, const State& s, double dt, double g, double k, double m, const maths::vec3& wind) 
 {
     State k1 = derivatives(t, s, g, k, m);
     State s2 = 
