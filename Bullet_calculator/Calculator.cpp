@@ -14,7 +14,7 @@ Target Calculator::process_bullet_motion(double dt)
 {
     State state{bullet.coordinates, bullet.velocity};
 
-    while (state.coordinates.y >= 0 )
+    while (state.coordinates.y >= 0 && state.coordinates.x <= start_params.target_distance)
     {
         state = rk4_step(0, state, dt / 1000.0, environment.g, 0, bullet.mass);
 
