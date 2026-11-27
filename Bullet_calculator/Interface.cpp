@@ -11,7 +11,7 @@ Bullet Interface::input_bullet_data()
     
     while (true)
     {
-        std::cout<< "Mass bullet = ";
+        std::cout<< "Mass bullet (mg) = ";
         if ((std::cin >> bullet.mass)&& bullet.mass > 0) {
             break; 
         } 
@@ -87,7 +87,7 @@ Task_param Interface::input_task_param_data()
     
     while (true)
     {
-        std::cout<< "Start speed = ";
+        std::cout<< "Start speed (m/s) = ";
         if ((std::cin >> task_param.start_speed)&& task_param.start_speed > 0) {
             break; 
         } 
@@ -100,7 +100,7 @@ Task_param Interface::input_task_param_data()
     }
     while (true)
     {
-        std::cout<< "Angle = ";
+        std::cout<< "Angle (°) = ";
         if ((std::cin >> task_param.angle)&& (task_param.angle > 0)&& (task_param.angle < 180)) {
             break; 
         } 
